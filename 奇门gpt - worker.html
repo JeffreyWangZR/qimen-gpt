@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 让页面在手机上适应屏幕 -->
+  <title>奇门求测分析</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      font-size: 16px; /* 默认字体大小 */
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    label {
+      display: inline-block;
+      width: 80px;
+      font-size: 16px;
+    }
+
+    select, textarea, button {
+      font-size: 16px;
+    }
+
+    /* 在手机屏幕上调整字体大小 */
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 18px; /* 增大手机上的默认字体 */
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      label {
+        font-size: 18px;
+        width: 100px; /* 让标签稍微变宽，方便触控 */
+      }
+
+      select, textarea, button {
+        font-size: 18px;
+      }
+
+      button {
+        padding: 10px 20px; /* 增加按钮大小，方便点击 */
+      }
+    }
+  </style>
+</head>
+<body>
+    <h2>选择日柱信息</h2>
+    <div class="section">
+        <label for="dayGong" style="width: auto; margin-right: 5px;">宫位:</label>
+        <select id="dayGong" style="width: auto; margin-right: 15px;">
+            <option value="巽">巽</option>
+            <option value="震">震</option>
+            <option value="坎">坎</option>
+            <option value="离">离</option>
+            <option value="艮">艮</option>
+            <option value="兑">兑</option>
+            <option value="乾">乾</option>
+            <option value="坤">坤</option>
+        </select>
+        <label for="dayMen" style="width: auto; margin-right: 5px;">八门:</label>
+        <select id="dayMen" style="width: auto; margin-right: 15px;">
+            <option value="休门">休门</option>
+            <option value="生门">生门</option>
+            <option value="伤门">伤门</option>
+            <option value="杜门">杜门</option>
+            <option value="景门">景门</option>
+            <option value="死门">死门</option>
+            <option value="惊门">惊门</option>
+            <option value="开门">开门</option>
+        </select>
+        <label for="dayStar" style="width: auto; margin-right: 5px;">九星:</label>
+        <select id="dayStar" style="width: auto; margin-right: 15px;">
+            <option value="天辅">天辅</option>
+            <option value="天蓬">天蓬</option>
+            <option value="天心">天心</option>
+            <option value="天柱">天柱</option>
+            <option value="天任">天任</option>
+            <option value="天英">天英</option>
+            <option value="天禽">天禽</option>
+            <option value="天芮">天芮</option>
+            <option value="天冲">天冲</option>
+        </select>
+        <label for="dayShen" style="width: auto; margin-right: 5px;">八神:</label>
+        <select id="dayShen" style="width: auto; margin-right: 15px;">
+            <option value="腾蛇">腾蛇</option>
+            <option value="值符">值符</option>
+            <option value="太阴">太阴</option>
+            <option value="六合">六合</option>
+            <option value="白虎">白虎</option>
+            <option value="玄武">玄武</option>
+            <option value="九地">九地</option>
+            <option value="九天">九天</option>
+        </select>
+    </div>
+
+    <h2>选择时柱信息</h2>
+    <div class="section">
+        <label for="hourGong" style="width: auto; margin-right: 5px;">宫位:</label>
+        <select id="hourGong" style="width: auto; margin-right: 15px;">
+            <option value="巽">巽</option>
+            <option value="震">震</option>
+            <option value="坎">坎</option>
+            <option value="离">离</option>
+            <option value="艮">艮</option>
+            <option value="兑">兑</option>
+            <option value="乾">乾</option>
+            <option value="坤">坤</option>
+        </select>
+        <label for="hourMen" style="width: auto; margin-right: 5px;">八门:</label>
+        <select id="hourMen" style="width: auto; margin-right: 15px;">
+            <option value="休门">休门</option>
+            <option value="生门">生门</option>
+            <option value="伤门">伤门</option>
+            <option value="杜门">杜门</option>
+            <option value="景门">景门</option>
+            <option value="死门">死门</option>
+            <option value="惊门">惊门</option>
+            <option value="开门">开门</option>
+        </select>
+        <label for="hourStar" style="width: auto; margin-right: 5px;">九星:</label>
+        <select id="hourStar" style="width: auto; margin-right: 15px;">
+            <option value="天冲">天冲</option>
+            <option value="天辅">天辅</option>
+            <option value="天蓬">天蓬</option>
+            <option value="天心">天心</option>
+            <option value="天柱">天柱</option>
+            <option value="天任">天任</option>
+            <option value="天英">天英</option>
+            <option value="天禽">天禽</option>
+            <option value="天芮">天芮</option>
+        </select>
+        <label for="hourShen" style="width: auto; margin-right: 5px;">八神:</label>
+        <select id="hourShen" style="width: auto; margin-right: 15px;">
+            <option value="腾蛇">腾蛇</option>
+            <option value="值符">值符</option>
+            <option value="太阴">太阴</option>
+            <option value="六合">六合</option>
+            <option value="白虎">白虎</option>
+            <option value="玄武">玄武</option>
+            <option value="九地">九地</option>
+            <option value="九天">九天</option>
+        </select>
+    </div>
+    <br>
+    <button id="confirmBtn">确定</button>
+
+  <h3>生成结果</h3>
+  <p id="result"></p>
+
+  <!-- 求测事件输入框 -->
+  <div class="input-group">
+    <label for="eventInput"  style="white-space: nowrap;">求测事件：</label><br> <br>
+    <textarea id="eventInput" rows="3" cols="50" placeholder="请输入求测事件"></textarea>
+  </div>
+  <!-- 分析结果按钮 -->
+  <div class="input-group">
+    <br>
+    <button id="analyzeBtn">分析结果</button>
+  </div>
+
+  <h3>分析输出</h3>
+  <p id="analysisResult"></p>
+
+  <script>
+    // 用于保存确定后的文本
+    var confirmedText = "";
+
+    // 点击“确定”按钮生成初步结果
+    document.getElementById("confirmBtn").addEventListener("click", function(){
+      var dayGong = document.getElementById("dayGong").value;
+      var dayMen = document.getElementById("dayMen").value;
+      var dayStar = document.getElementById("dayStar").value;
+      var dayShen = document.getElementById("dayShen").value;
+
+      var hourGong = document.getElementById("hourGong").value;
+      var hourMen = document.getElementById("hourMen").value;
+      var hourStar = document.getElementById("hourStar").value;
+      var hourShen = document.getElementById("hourShen").value;
+
+      confirmedText = "求测者日柱：" + dayGong + " → " + dayMen + " + " + dayStar +" + " + dayShen + "<br>" +
+                            "时柱：" + hourGong + " → "  + hourMen + " + " + hourStar + " + " + hourShen;
+      document.getElementById("result").innerHTML = confirmedText;
+    });
+
+    // 点击“分析结果”按钮调用 OpenAI API
+    document.getElementById("analyzeBtn").addEventListener("click", function(){
+      var eventInput = document.getElementById("eventInput").value.trim();
+      if(eventInput === ""){
+        alert("请输入求测事件！");
+        return;
+      }
+      // 拼接分析提示文本
+      var promptText = "你是一个中国阴盘奇门分析大师，请用阴盘奇门的分析方式，分析求测事件为:" + eventInput + "，我已经排号了奇门盘，" + confirmedText
+                                     +"，再提醒一下大师阴盘奇门的核心，1.日干与宫位的对应关系，解释求测人的性格、背景和需求。2.时干与宫位的对应关系，解释事件的性质、发展以及可能的结果。3.结合 五行生克关系，进一步分析宫位之间的力量对比和影响。4. 综合 象意（八门、九星、八神）来判定吉凶；请注意，象意的取用应根据不同的宫位和干支来灵活判断。"
+      
+      // 显示加载状态
+      document.getElementById("analysisResult").innerHTML = "正在调用 OpenAI API，请稍候...";
+
+      // 发起 API 请求
+      fetch("https://gpt-api.ziruiwang12.workers.dev/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"},
+        body: JSON.stringify({
+          model: "gpt-4o-mini",
+          messages: [
+            {"role": "system", "content": "You are ChatGPT, a large language model trained by OpenAI. Knowledge cutoff: 2024-06. Current date: 2025-03"},
+            {"role": "user", "content": promptText}],       
+          max_tokens: 2000,
+          temperature: 0.5
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.choices && data.choices.length > 0) {
+          var answer = data.choices[0].message.content;
+          document.getElementById("analysisResult").innerHTML = answer;
+        } else {
+          document.getElementById("analysisResult").innerHTML = "未收到有效回复，请检查 API 调用。";
+        }
+      })
+      .catch(error => {
+        console.error("OpenAI API 调用错误:", error);
+        document.getElementById("analysisResult").innerHTML = "调用 API 时出错，请查看控制台日志。";
+      });
+    });
+  </script>
+</body>
+</html>
